@@ -7,16 +7,17 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
+  "lint-staged": {
+    "src/**/*.{js,vue}": [
+      "yarn prettier --write",
+      "yarn lint --fix src/"
+    ]
+  },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged --allow-empty"
+      "pre-commit": "lint-staged --allow-empty",
+      "commit-msg": "echo $HUSKY_GIT_PARAMS"
     }
-  },
-  "lint-staged": {
-    "src/**/*.{js,json,vue}": [
-      "prettier --write",
-      "eslint --fix src/"
-    ]
   },
   "dependencies": {
     "core-js": "^3.6.4",
