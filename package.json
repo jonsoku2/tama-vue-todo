@@ -8,15 +8,17 @@
     "lint": "vue-cli-service lint"
   },
   "lint-staged": {
-    "src/**/*.{js,vue}": [
+    "src/**/*.{js,json,vue}": [
       "prettier --write",
+      "eslint --fix",
       "git add"
     ]
   },
   "husky": {
     "hooks": {
       "prepare-commit-msg": "./scripts/add_issue_number_into_commit.sh $HUSKY_GIT_PARAMS",
-      "pre-commit": "lint-staged --allow-empty"
+      "pre-commit": "lint-staged --allow-empty",
+      "pre-push": "branch-naming-check '^(feat|fix)-\\d+(\\-.+|$)'"
     }
   },
   "dependencies": {
@@ -30,6 +32,7 @@
     "@vue/cli-plugin-vuex": "~4.3.0",
     "@vue/cli-service": "~4.3.0",
     "babel-eslint": "^10.1.0",
+    "branch-naming-check": "^1.0.2",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
     "husky": "^4.2.5",
