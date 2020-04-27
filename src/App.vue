@@ -5,14 +5,14 @@
 </template>
 
 <script>
-import Todo from "./components/Todo"
+import Todo from './components/Todo';
 
 export default {
-  name: "App",
+  name: 'App',
   components: {
     Todo,
   },
-}
+};
 </script>
 
 <style></style>
