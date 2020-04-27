@@ -7,5 +7,5 @@ issue_number=`echo ${branch_name} | cut -d '-' -f1`
 first_line=`head -n1 ${COMMIT_MSG_FILE}`
 
 if [ -z "$first_line" ]; then
-    ➅ sed -i ".bak" "1s/^/[#$issue_number] /" ${COMMIT_MSG_FILE}
+    sed -i ".bak" "1s/^/[#$issue_number] /" ${COMMIT_MSG_FILE}
 fi
